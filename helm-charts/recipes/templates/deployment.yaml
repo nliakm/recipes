@@ -203,4 +203,4 @@ spec:
       {{- end }}
       - name: nginx-config
         configMap:
-        name: {{ .Release.Name }}-nginx-config
+          name: {{ .Release.Name }}-nginx-config
