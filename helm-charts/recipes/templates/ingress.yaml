@@ -29,21 +29,21 @@ spec:
       paths:
       - backend:
           service:
-            name: recipes
+            name: {{ .Release.Name }}-svc
             port:
               number: 8080
         path: /
         pathType: Prefix
       - backend:
           service:
-            name: recipes
+            name: {{ .Release.Name }}-svc
             port:
               number: 80
         path: /media
         pathType: Prefix
       - backend:
           service:
-            name: recipes
+            name: {{ .Release.Name }}-svc
             port:
               number: 80
         path: /static
