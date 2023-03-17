@@ -82,7 +82,7 @@ spec:
       {{- end }}
       containers:
       - name: recipes-nginx
-        image: {{ .Values.recipes.nginx.image.repository }}:{{ .Values.recipes.nginx.image.imagePullPolicy }}
+        image: {{ .Values.recipes.nginx.image.repository }}:{{ .Values.recipes.nginx.image.tag }}
         imagePullPolicy: {{ .Values.recipes.nginx.image.imagePullPolicy }}
         ports:
           - containerPort: 80
