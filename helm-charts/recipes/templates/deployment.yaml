@@ -96,10 +96,10 @@ spec:
         {{- toYaml . | nindent 10 }}
         {{- end }}
         volumeMounts:
-          - mountPath: /media
+          - mountPath: /opt/recipes/mediafiles
             name: media
             subPath: files
-          - mountPath: /static
+          - mountPath: /opt/recipes/staticfiles
             name: static
             subPath: files
           - name: nginx-config
