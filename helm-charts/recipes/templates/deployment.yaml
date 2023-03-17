@@ -20,7 +20,7 @@ spec:
     spec:
       restartPolicy: Always
       serviceAccount: recipes
-      serviceAccountName: recipes
+      serviceAccountName: {{ .Release.Name }}-sa
       {{- if .Values.recipes.initChmodData.enabled }}
       initContainers:
       - name: init-chmod-data
