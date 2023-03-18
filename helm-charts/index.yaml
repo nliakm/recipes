@@ -13,6 +13,6 @@ entries:
     name: recipes
     type: application
     urls:
-    - https://nliakm.github.io/helm-charts/recipes-0.0.1.tgz
+    - https://nliakm.github.io/helm-charts/recipes/recipes-0.0.1.tgz
     version: 0.0.1
 generated: "2023-03-17T00:06:17.893392+01:00"

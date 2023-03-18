@@ -47,7 +47,7 @@ recipes:
   
   # Manage persistent storage
   pvc:
-    enabled: false
+    enabled: true
     media:
       # Set the name of an existing PVC to use
       existingPvcName: ""
@@ -128,11 +128,39 @@ recipes:
     runAsGroup: 65534
 
 # Default values for the PostgreSQL chart
+# For all values, visit https://github.com/bitnami/charts/blob/main/bitnami/postgresql/values.yaml
 postgresql:
   global:
     postgresql:
       auth:
         # Username to use for the PostgreSQL database
         username: recipes
+        # Password to use for the PostgreSQL user
+        password: mysecretpass
         # Database name to use for the PostgreSQL database
         database: recipes
+  primary:
+    ## PostgreSQL Primary persistence configuration
+    ##
+    persistence:
+      ## @param primary.persistence.enabled Enable PostgreSQL Primary data persistence using PVC
+      ##
+      enabled: true
+      ## @param primary.persistence.existingClaim Name of an existing PVC to use
+      ##
+      existingClaim: ""
+      ## @param primary.persistence.storageClass PVC Storage Class for PostgreSQL Primary data volume
+      ## If defined, storageClassName: <storageClass>
+      ## If set to "-", storageClassName: "", which disables dynamic provisioning
+      ## If undefined (the default) or set to null, no storageClassName spec is
+      ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+      ##   GKE, AWS & OpenStack)
+      ##
+      storageClass: ""
+      ## @param primary.persistence.accessModes PVC Access Mode for PostgreSQL volume
+      ##
+      accessModes:
+        - ReadWriteOnce
+      ## @param primary.persistence.size PVC Storage Request for PostgreSQL volume
+      ##
+      size: 1Gi
